@@ -134,9 +134,9 @@ async function templateMessageSend() {
   // 天气信息
   let weatherInfo = await get_weather()
   // 计算在一起的天数
-  let together_day = dayjs().diff(config.love_date, "day")
+  // let together_day = dayjs().diff(config.love_date, "day")
   // 每日情话
-  let loveStr = await sweetNothings()
+  // let loveStr = await sweetNothings()
   // 模板id 配置项
   const params = {
     touser: config.user,
@@ -195,35 +195,35 @@ async function templateMessageSend() {
         color: randomColor(),
       },
       // 宝贝的名字
-      dearName: {
-        value: config.birthday1.name,
-        color: randomColor(),
-      },
+      // dearName: {
+      //   value: config.birthday1.name,
+      //   color: randomColor(),
+      // },
       // 我的名字
-      myName: {
-        value: config.birthday2.name,
-        color: randomColor(),
-      },
+      // myName: {
+      //   value: config.birthday2.name,
+      //   color: randomColor(),
+      // },
       // 距离宝贝生日
-      dearBrthDays: {
-        value: brthDate(config.birthday1.birthday),
-        color: randomColor(),
-      },
+      // dearBrthDays: {
+      //   value: brthDate(config.birthday1.birthday),
+      //   color: randomColor(),
+      // },
       // 距离我的生日
-      myBrthDays: {
-        value: brthDate(config.birthday2.birthday),
-        color: randomColor(),
-      },
+      // myBrthDays: {
+      //   value: brthDate(config.birthday2.birthday),
+      //   color: randomColor(),
+      // },
       // 在一起的天数
-      loveDays: {
-        value: together_day,
-        color: randomColor(),
-      },
+      // loveDays: {
+      //   value: together_day,
+      //   color: randomColor(),
+      // },
       // 每日情话
-      loveWords: {
-        value: loveStr,
-        color: randomColor(),
-      }
+      // loveWords: {
+      //   value: loveStr,
+      //   color: randomColor(),
+      // }
     },
   };
   let res = await axiosPost(url, params);
@@ -243,13 +243,13 @@ async function templateMessageSend() {
   }
 }
 // 调用函数，推送模板消息
-templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
+// templateMessageSend(); // 第一次执行程序时会推送一次消息，如使用定时器
 
 // 定时器（Cron）：定时推送消息
 const schedule = require('node-schedule');
 const scheduleCronstyle = () => {
   // 每天的早8点触发（定时器规则：秒/分/时/日/月/年，*号可理解为"每"的意思，如 0 0 8 * 这个*表示每日）
-  schedule.scheduleJob('0 0 8 * * *', () => {
+  schedule.scheduleJob('0 05 16 * * *', () => {
     templateMessageSend();
   });
 }
