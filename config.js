@@ -5,7 +5,7 @@ const config = {
     user: "o3H8j591ZO1W1nBQq_w1qnpjX08U", // 接收公众号消息的微信号
     template_id: "qKHK_2xIePetGQ9kxBFKyuk2Gx2cr53Ua9D143FCckM", // 模板 id
     // 信息配置
-    city: "上海", // 所在城市
+    city: "深圳", // 所在城市
     // birthday1: { "name": "宝贝", "birthday": "2022-12-27" }, // 宝贝生日（阳历），姓名和生日，生日格式为"年-月-日"
     // birthday2: { "name": "我的", "birthday": "2022-11-28" }, // 我的生日，同上
     // love_date: "2021-8-25", // 在一起的日期，年月日以"-"分隔
