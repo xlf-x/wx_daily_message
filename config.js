@@ -2,7 +2,7 @@ const config = {
     // 公众号配置
     app_id: "wx9a00a3eac9a87dfc", // 公众号appId
     app_secret: "83eaaad9f8b5600a8b0dbcf0d8d33816", // 公众号appSecret
-    user: "o3H8j591ZO1W1nBQq_w1qnpjX08U", // 接收公众号消息的微信号
+    user: "", // 接收公众号消息的微信号
     template_id: "qKHK_2xIePetGQ9kxBFKyuk2Gx2cr53Ua9D143FCckM", // 模板 id
     // 信息配置
     city: "深圳", // 所在城市
