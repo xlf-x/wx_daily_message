@@ -77,13 +77,6 @@ module.exports = {
         }
         return birthDays
     },
-    // 土味情话
-    async sweetNothings() {
-        let res = await http.get("https://api.1314.cool/words/api.php?return=json")
-        let str = ""
-        config.loveStr ? str = config.loveStr : str = res.data.word
-        return str.replace(/<br>/g, "\n")
-    },
     // 随机颜色
     randomColor() {
         let randomColor = "#" + parseInt(Math.random() * 0x1000000).toString(16).padStart(6, "0")

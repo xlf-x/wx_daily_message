@@ -4,7 +4,7 @@ const templateMessageSend = require('./utils/templateMessageSend')
 const schedule = require('node-schedule');
 
 // 调试用，直接推送模板消息
-// templateMessageSend()
+templateMessageSend()
 
 // 定时执行 推送模板消息的方法
 const scheduleCronstyle = () => {
@@ -13,5 +13,5 @@ const scheduleCronstyle = () => {
 		templateMessageSend()
 	});
 }
-scheduleCronstyle()
+// scheduleCronstyle()
 console.log('app.js start')

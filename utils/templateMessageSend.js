@@ -18,8 +18,6 @@ const templateMessageSend = async function () {
     let weatherInfo = await get_weather()
     // 计算在一起的天数
     // let together_day = dayjs().diff(config.love_date, "day")
-    // 每日情话
-    // let loveStr = await sweetNothings()
     // 模板id 配置项
     const params = {
         touser: config.user,
@@ -77,36 +75,11 @@ const templateMessageSend = async function () {
                 value: weatherInfo.humidity,
                 color: randomColor(),
             },
-            // 宝贝的名字
-            // dearName: {
-            //   value: config.birthday1.name,
-            //   color: randomColor(),
-            // },
-            // 我的名字
-            // myName: {
-            //   value: config.birthday2.name,
-            //   color: randomColor(),
-            // },
-            // 距离宝贝生日
-            // dearBrthDays: {
-            //   value: brthDate(config.birthday1.birthday),
-            //   color: randomColor(),
-            // },
-            // 距离我的生日
-            // myBrthDays: {
-            //   value: brthDate(config.birthday2.birthday),
-            //   color: randomColor(),
-            // },
             // 在一起的天数
             // loveDays: {
             //   value: together_day,
             //   color: randomColor(),
             // },
-            // 每日情话
-            // loveWords: {
-            //   value: loveStr,
-            //   color: randomColor(),
-            // }
         },
     };
     let res = await http.post(url, params);
