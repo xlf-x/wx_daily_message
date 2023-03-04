@@ -1,10 +1,12 @@
 const axios = require('axios')
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 module.exports = {
-    post: function (url, params) {
+    post: function (url, params, headers = {}) {
         return new Promise((resolve, reject) => {
 			axios
+				.create({
+					headers,
+				})
 				.post(url, params)
 				.then(res => {
 					resolve(res);
@@ -14,9 +16,12 @@ module.exports = {
 				});
         })
 	},
-    get: function (url, params) {
+    get: function (url, params, headers = {}) {
         return new Promise((resolve, reject) => {
 			axios
+				.create({
+					headers,
+				})
 				.get(url, {
 					params,
 				})

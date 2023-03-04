@@ -24,13 +24,17 @@ module.exports = {
     // 获取天气情况
     async get_weather() {
         const params = {
-            openId: "aiuicus",
-            clientType: "h5",
-            sign: "h5",
-            city: config.city
+            area: config.city,
+            AppCode: '4389d0fed73f4d62b8cfff2e69a254bb',
         }
-        let res = await http.post(`http://autodev.openspeech.cn/csp/api/v2.1/weather`, params)
-        return res.data.data.list[0]
+        const headers = {
+            Authorization: 'APPCODE 4389d0fed73f4d62b8cfff2e69a254bb'
+        }
+        let res = await http.get(`https://qryweather.market.alicloudapi.com/lundroid/queryweather`, params, headers,)
+        // console.log('天气接口返回', res)
+        const todayWeather = res.data.data.info.f1
+        // console.log('当天天气', todayWeather)
+        return todayWeather
     },
     // 获取当前时间：格式 2022年8月25日 星期五
     getCurrentDate() {
