@@ -47,39 +47,24 @@ const templateMessageSend = async function () {
             },
             // 当前气温
             temp: {
-                value: weatherInfo.temp + "°C",
+                value: weatherInfo.temperature + "°C",
                 color: randomColor(),
             },
             // 最低气温
             low: {
-                value: weatherInfo.low + "°C",
+                value: weatherInfo.night_low_temperature + "°C",
                 color: randomColor(),
             },
             // 最高气温
             high: {
-                value: weatherInfo.high + "°C",
-                color: randomColor(),
-            },
-            // 风向
-            wind: {
-                value: weatherInfo.wind,
-                color: randomColor(),
-            },
-            // 空气质量
-            airQuality: {
-                value: weatherInfo.airQuality,
+                value: weatherInfo.day_high_temperature + "°C",
                 color: randomColor(),
             },
             // 湿度
             humidity: {
-                value: weatherInfo.humidity,
+                value: weatherInfo.sd,
                 color: randomColor(),
             },
-            // 在一起的天数
-            // loveDays: {
-            //   value: together_day,
-            //   color: randomColor(),
-            // },
         },
     };
     let res = await http.post(url, params);

@@ -7,7 +7,5 @@ const config = {
     template_id: "qKHK_2xIePetGQ9kxBFKyuk2Gx2cr53Ua9D143FCckM", // 模板 id
     // 信息配置
     city: "深圳", // 所在城市
-    // love_date: "2021-8-25", // 在一起的日期，年月日以"-"分隔
-    // loveStr: "", // 如果填写,则以填写内容为主，如果不填写则自动获取土味情话语句
 }
 module.exports = config

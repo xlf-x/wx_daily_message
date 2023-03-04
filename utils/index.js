@@ -32,7 +32,12 @@ module.exports = {
         }
         let res = await http.get(`https://qryweather.market.alicloudapi.com/lundroid/queryweather`, params, headers,)
         // console.log('天气接口返回', res)
-        const todayWeather = res.data.data.info.f1
+        const todayWeather = {
+            province: res.data.data.province,
+            city: res.data.data.city,
+            ...res.data.data.info.f1,
+            ...res.data.data.info.now,
+        }
         // console.log('当天天气', todayWeather)
         return todayWeather
     },
