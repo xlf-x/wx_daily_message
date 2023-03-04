@@ -1,7 +1,10 @@
 {{nowDate.DATA}}
 地区：{{city.DATA}}
-天气：{{weather.DATA}}
+天气：{{todayWeather.DATA}}
 当前温度：{{temp.DATA}}
 最低温度：{{low.DATA}}
 最高温度：{{high.DATA}}
 湿度：{{humidity.DATA}}
+{{starName.DATA}}座运势：{{starLuckySummary.DATA}}
+幸运数字：{{luckyNum.DATA}}
+今日提醒：{{dayNotice.DATA}}

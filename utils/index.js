@@ -25,7 +25,6 @@ module.exports = {
     async get_weather() {
         const params = {
             area: config.city,
-            AppCode: '4389d0fed73f4d62b8cfff2e69a254bb',
         }
         const headers = {
             Authorization: 'APPCODE 4389d0fed73f4d62b8cfff2e69a254bb'
@@ -38,8 +37,37 @@ module.exports = {
             ...res.data.data.info.f1,
             ...res.data.data.info.now,
         }
+        todayWeather.todayWeather = `${todayWeather.day_weather}转${todayWeather.night_weather}`
         // console.log('当天天气', todayWeather)
         return todayWeather
+    },
+    // 获取星座运势
+    async get_horoscope () {
+        const params = {
+            star: config.star,
+        }
+        const headers = {
+            Authorization: 'APPCODE 4389d0fed73f4d62b8cfff2e69a254bb'
+        }
+        let res = await http.get(`https://ali-star-lucky.showapi.com/star`, params, headers,)
+        // 自身星座中文
+        const starNameMap = {
+            'baiyang': '白羊',
+            'jinniu': '金牛',
+            'shuangzi': '双子',
+            'juxie': '巨蟹',
+            'shizi': '狮子',
+            'chunv': '处女',
+            'tiancheng': '天秤',
+            'tianxie': '天蝎',
+            'sheshou': '射手',
+            'mojie': '摩羯',
+            'shuiping': '水瓶',
+            'shuangyu': '双鱼',
+        }
+        res.data.showapi_res_body.day.starName = starNameMap[res.data.showapi_res_body.star]
+        // console.log(config.star, '当前星座运势为', res.data.showapi_res_body)
+        return res.data.showapi_res_body.day
     },
     // 获取当前时间：格式 2022年8月25日 星期五
     getCurrentDate() {

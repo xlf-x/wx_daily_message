@@ -4,6 +4,7 @@ const config = require("../config")
 const {
     getToken,
     get_weather,
+    get_horoscope,
     getCurrentDate,
     brthDate,
     sweetNothings,
@@ -16,8 +17,8 @@ const templateMessageSend = async function () {
     const url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=' + token;
     // 天气信息
     let weatherInfo = await get_weather()
-    // 计算在一起的天数
-    // let together_day = dayjs().diff(config.love_date, "day")
+    // 星座运势
+    let starLucky = await get_horoscope()
     // 模板id 配置项
     const params = {
         touser: config.user,
@@ -40,9 +41,14 @@ const templateMessageSend = async function () {
                 value: weatherInfo.city,
                 color: randomColor(),
             },
-            // 天气
+            // 当前天气
             weather: {
                 value: weatherInfo.weather,
+                color: randomColor(),
+            },
+            // 当天天气
+            todayWeather: {
+                value: weatherInfo.todayWeather,
                 color: randomColor(),
             },
             // 当前气温
@@ -63,6 +69,25 @@ const templateMessageSend = async function () {
             // 湿度
             humidity: {
                 value: weatherInfo.sd,
+                color: randomColor(),
+            },
+            // 星座名
+            starName: {
+                value: starLucky.starName,
+            },
+            // 综合星座运势指数
+            starLuckySummary: {
+                value: starLucky.summary_star,
+                color: randomColor(),
+            },
+            // 幸运数字
+            luckyNum: {
+                value: starLucky.lucky_num,
+                color: randomColor(),
+            },
+            // 今日提醒
+            dayNotice: {
+                value: starLucky.day_notice,
                 color: randomColor(),
             },
         },
